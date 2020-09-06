@@ -1,0 +1,78 @@
+<!--
+=============================================================
+ Title:  auth-layout.component.html
+ Author: Professor Krasso
+ Date:   28 August 2020
+ Modified By: Janet Blohn
+ Description: Bob's Computer Repair Application
+ HTML for the home.component of bobs-computer-repair
+=============================================================
+-->
+<div fxLayout="row wrap" fxLayoutGap="20px">
+
+  <!-- Create a form with checkboxes to select services from -->
+<div fxFlex>
+    <mat-card class="mat-elevation-z8 services-form">
+      <mat-card-title>Our List of Services</mat-card-title>
+
+      <mat-card-content>
+        <form [formGroup]="serviceForm" fxLayout="column" fxLayoutGap="16px"> <!-- was just form-->
+           <table fxFlex>
+
+              <thead>
+
+              <tr>
+                <th scope="col"></th>
+                <th scope="col">Service</th>
+                <th style="text-align: right" scope="col">Price</th>
+              </tr>
+            </thead>
+
+            <!-- Loop through all the services and display them -->
+
+              <tbody *ngFor="let service of services | async">
+                <tr><mat-checkbox
+
+                  (change)="onChange($event)"
+                  name={{service.serviceName}}
+
+                  value={{service.price}}
+                  >
+
+
+                  <td> {{ service.serviceName }}</td>
+                <td style="text-align: right">{{ service.price | currency }}</td>
+              </mat-checkbox></tr>
+
+          </table>
+          <div fxFlex>
+            <div fxLayout="row" fxAlign="end bottom" fxLayoutGap="20px">
+                        <button mat-raised-button type="reset" color="accent" (click)="clearOrder()">Cancel Order</button>
+          <button mat-raised-button type="submit" color="primary" ngSubmit="subOrder">Submit Order</button>
+              {{ orderMessage }}
+        </div>
+      </div>
+
+        </form>
+      </mat-card-content>
+
+    </mat-card>
+  </div>
+
+ <!-- <div fxLayout="column" fxLayoutGap="20px">
+<div fxFlex>
+      <mat-card *ngIf checked="true" class=" mat-elevation-z8" class="invoice">
+        <mat-card class=" mat-elevation-z8" class="invoice">
+        <mat-card-title>Invoice</mat-card-title>
+        <mat-card-content>
+          <p>Your invoice will appear here when you check items.</p>
+          <app-invoice-summary *ngFor="let entry of serviceEntries" [serviceName]="entry.serviceName" [price]="entry.price"></app-invoice-summary>
+
+         <app-invoice-summary></app-invoice-summary>
+        <app-invoice-summary></app-invoice-summary>
+        </mat-card-content>
+      </mat-card>
+    </div>-->
+
+
+</div>

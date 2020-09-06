@@ -1,0 +1,46 @@
+<!--
+=============================================================
+ Title:  invoice-summary.component.html
+ Author: Professor Krasso
+ Date:   28 August 2020
+ Modified By: Janet Blohn
+ Description: Bob's Computer Repair Application
+ HTML for the invoice-summary.component of bobs-computer-repair
+=============================================================
+-->
+<div fxFlex>
+<mat-card class="invoice-form">
+  <mat-card-title>Your Invoice</mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="invoiceForm" fxLayout="column" fxLayoutGap="16px">
+    <h2>Date: {{ currentDate | date}} </h2>
+    <table fxFlex>
+      <thead>
+        <tr>
+        <th>Service</th>
+        <th>Cost</th>
+      </tr>
+      </thead>
+      <tbody *ngFor = "let invoice of invoiceEntries">
+        <tr>
+          <td>
+            {{ invoice.serviceName }}
+          </td>
+          <td>
+            {{ invoice.price | currency}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div fxFlex>
+      <div fxLayout="row" fxAlign="end bottom" fxLayoutGap="20px">
+                  <button mat-raised-button type="reset" color="accent" (click)="clearOrder()">Cancel Order</button>
+    <button mat-raised-button type="ordered" color="primary" matDialogClose="ordered">Complete Order</button>
+</div>
+  </div>
+
+  </form>
+</mat-card-content>
+
+</mat-card>
+</div>

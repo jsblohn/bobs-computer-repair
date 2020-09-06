@@ -1,0 +1,41 @@
+<!--
+=============================================================
+ Title:  app.component.html
+ Author: Professor Krasso
+ Date:   28 August 2020
+ Modified By: Janet Blohn
+ Description: Bob's Computer Repair Application
+ HTML for the app.component of bobs-computer-repair
+=============================================================
+-->
+
+<!-- Create a Toolbar for Navigation -->
+<mat-toolbar class="primary">
+  <mat-toolbar-row>
+    <div class="logo">
+      <!-- img src=-->
+    </div>
+    <div style="width: 80%">
+      <div fxLayout="row wrap" >
+        <button mat-button routerLink="/contact">Contact Us</button>
+      </div>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+<br />
+
+<!-- Create the container for the child components-->
+<div fxLayout="row wrap">
+  <div fxFlex>
+    <mat-card class="main-container">
+      <mat-card-title style="text-align: center">
+       <h1> {{ company }} </h1>
+      </mat-card-title>
+      <mat-card-content>
+        <br />
+<!-- Define the router-outlet to place components in -->
+        <router-outlet></router-outlet>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

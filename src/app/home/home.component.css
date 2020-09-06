@@ -1,0 +1,43 @@
+.services-form {
+  width: 80%;
+
+  /*max-width: 70%;*/
+  margin-left: 8px;
+}
+
+/*.invoice {
+  width: 50%;
+}*/
+
+th {
+  text-align: left;
+}
+
+.mat-checkbox td {
+  width: 35%;
+}
+
+td {
+  text-align: center;
+
+}
+
+mat-card-title {
+  text-align: center;
+}
+
+.matCheckbox th {
+  text-align: left;
+}
+
+form {
+  /*display: inline-block;
+  margin: 0 auto;*/
+text-align: left;
+}
+
+.mat-card {
+  display: inline-block;
+  width: 80%;
+  margin: 0 auto;
+}
