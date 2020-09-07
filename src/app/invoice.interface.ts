@@ -10,14 +10,20 @@
 */
 
 // Import the Interface the Services Interface and add additional fields
-//import { IService } from './service.interface';
+import { IService } from './service.interface';
 
 export interface IInvoice {
-    //lineItems: Array<IService>;
+   //lineItems: Array<IService>;
+
+    invoiceId: number;
     serviceName: string;
     price: number;
 
     partsAmount: number;
     laborAmount: number;
+
+
+
+
 
 }

@@ -33,14 +33,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { InvoiceSummaryComponent } from './invoice-summary/invoice-summary.component';
-import { ContactComponent } from './contact/contact.component';
+//import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     InvoiceSummaryComponent,
-    ContactComponent
+   // ContactComponent
   ],
   imports: [
     BrowserModule,

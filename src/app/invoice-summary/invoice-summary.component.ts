@@ -11,9 +11,9 @@
 
 /* Import required modules from Angular */
 import { Component, OnInit, Input, Output, Inject } from '@angular/core';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatCardModule } from '@angular/material/card';
-import { MatDialog } from '@angular/material/dialog';
+//import { MatCheckboxModule } from '@angular/material/checkbox';
+//import { MatCardModule } from '@angular/material/card';
+//import { MatDialog } from '@angular/material/dialog';
 import { FormGroup, FormBuilder, Validators, FormArray, FormControl, NgModel } from '@angular/forms';
 
 import { IInvoice } from '../invoice.interface';
@@ -32,23 +32,25 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 })
 
 export class InvoiceSummaryComponent implements OnInit {
-  invoices: Observable<IInvoice[]>;
+  invoices: Array<IInvoice[]>;
 
   invoice: IInvoice;
   //service: IService;
 
+
   invoiceEntry: IInvoice;
-  //serviceEntries: Array<IService> = [];
+  serviceEntries: Array<IService> = [];
   invoiceEntries: Array<IInvoice> = [];
   currentDate: number = Date.now();
   invoiceForm: FormGroup;
   serviceForm: FormGroup;
+  //list;
   orderMessage: string;
 
   constructor(private dialogRef: MatDialogRef<InvoiceSummaryComponent>,
-    @Inject(MAT_DIALOG_DATA) data, private invoiceService: InvoiceService){
+    @Inject(MAT_DIALOG_DATA) data, private invoiceService: InvoiceService, private servicesService: ServicesService,){
 
-    //list;
+
 
     this.invoiceEntry = {} as IInvoice;
     this.invoice = {} as IInvoice;
@@ -58,6 +60,7 @@ export class InvoiceSummaryComponent implements OnInit {
 
 
   ngOnInit(): void {
+
   }
 
   onChange($event) {

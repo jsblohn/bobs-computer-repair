@@ -15,8 +15,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 // Import the components that will be navigated to
 import { HomeComponent } from './home/home.component';
-import { InvoiceSummaryComponent } from './invoice-summary/invoice-summary.component';
-import { ContactComponent } from './contact/contact.component';
+//import { InvoiceSummaryComponent } from './invoice-summary/invoice-summary.component';
+//import { ContactComponent } from './contact/contact.component';
 
 //Define the routes
 const routes: Routes = [
@@ -27,11 +27,11 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent
-  },
-  {
+  }
+  /*{
     path: 'contact',
     component: ContactComponent
-  },
+  },*/
   /*{
     path: 'invoice',
     component: InvoiceSummaryComponent

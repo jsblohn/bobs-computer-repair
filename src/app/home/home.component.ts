@@ -49,18 +49,18 @@ export class HomeComponent implements OnInit {
   serviceChecked: IInvoice;
   invoiceEntries: Array<IInvoice> = [];
   isChecked: false;
-  form: FormGroup;
+  //form: FormGroup;
   selectedServices: Array<string> = ['serviceName', 'price'];
   checked: MatCheckbox;
   serviceForm: FormGroup;
-  invoiceForm: FormGroup;
-
+  //invoiceForm: FormGroup;
+  newInvoice: [];
   //OrderInfo = this.invoiceEntry.invoice;
 
 orderMessage: string;
   //constructor(private servicesService: ServicesService, private fb: FormBuilder) {
   //constructor (private dialog: MatDialog, private servicesService: ServicesService, private invoiceService: InvoiceService) {
-    constructor (private dialog: MatDialog, private servicesService: ServicesService, private fb: FormBuilder) {
+    constructor (private dialog: MatDialog, private servicesService: ServicesService, private invoiceService: InvoiceService, private fb: FormBuilder) {
     this.services = servicesService.getServices();
 
     this.serviceEntry = {} as IService;
@@ -94,20 +94,17 @@ orderMessage: string;
   onChange(e) {
 
     console.log(e);
-    console.log(this.isChecked);
-    //console.log(this.checked);
     console.log(e.checked);
     this.checked = e.checked;
     if (e.checked) {
 
-      let price = e.source.value;
-      let serviceName = e.source.name;
-      let lineItems = [{serviceName, price}];
-      let partsAmount = e.source.partsAmount;
-      let laborAmount = e.source.laborAmount;
-      //lineItems: [{serviceName: '', price: 0}]
-      let newInvoice = {lineItems, partsAmount, laborAmount};
+      this.invoiceEntry.price = e.source.value;
+     this.invoiceEntry.serviceName = e.source.name;
+      //let lineItems = [{serviceName, price}];
+      this.invoiceEntry.partsAmount = e.source.partsAmount;
+      this.invoiceEntry.laborAmount = e.source.laborAmount;
 
+console.log(this.invoiceEntry.serviceName);
 
       function pushEntry() {
 
@@ -115,7 +112,7 @@ orderMessage: string;
         this.invoiceEntries.push (
 
 
-          newInvoice)
+          this.invoiceEntry)
         }
 
       console.log(this.invoiceEntries);

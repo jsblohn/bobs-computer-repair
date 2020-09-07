@@ -12,34 +12,39 @@
 <mat-card class="invoice-form">
   <mat-card-title>Your Invoice</mat-card-title>
   <mat-card-content>
-    <form [formGroup]="invoiceForm" fxLayout="column" fxLayoutGap="16px">
-    <h2>Date: {{ currentDate | date}} </h2>
+
+<h2>Date: {{ currentDate | date}} </h2>
+<div fxLayout="column">
     <table fxFlex>
-      <thead>
+       <thead>
         <tr>
-        <th>Service</th>
+       <th>Service</th>
         <th>Cost</th>
       </tr>
       </thead>
-      <tbody *ngFor = "let invoice of invoiceEntries">
+     <tbody *ngFor = "let invoice of invoices">
+        <tbody>
         <tr>
+
           <td>
             {{ invoice.serviceName }}
           </td>
+
           <td>
             {{ invoice.price | currency}}
           </td>
         </tr>
+
       </tbody>
     </table>
-    <div fxFlex>
+  </div>
       <div fxLayout="row" fxAlign="end bottom" fxLayoutGap="20px">
                   <button mat-raised-button type="reset" color="accent" (click)="clearOrder()">Cancel Order</button>
     <button mat-raised-button type="ordered" color="primary" matDialogClose="ordered">Complete Order</button>
 </div>
-  </div>
 
-  </form>
+
+
 </mat-card-content>
 
 </mat-card>

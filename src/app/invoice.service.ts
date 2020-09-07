@@ -16,9 +16,9 @@ import { map } from 'rxjs/operators';
 
 // Import IServices from the Services Interface (IService)
 import { IInvoice } from './invoice.interface';
-import { IService } from './service.interface';
+//import { IService } from './service.interface';
 
-import { ServicesService } from './services.service';
+//import { ServicesService } from './services.service';
 
 
 
@@ -28,20 +28,23 @@ import { ServicesService } from './services.service';
 
 // Export the services with the Invoice Array and define the services in the constructor
 export class InvoiceService {
-  invoice: Array<IInvoice>;
+  invoices: Array<IInvoice>;
 
-  constructor (private servicesService: ServicesService) {
-    this.invoice = [{
+  //constructor (private invoiceService: InvoiceService) {
+    constructor() {
+
+      this.invoices = [{
+        invoiceId: 0,
        serviceName: '',
         price: 0,
         partsAmount: 0,
     laborAmount: 0
   }
+  ]
 
 
-     ]
-   }
 
+  }
 
    // Return the service
    /*getServices(): Observable<IService[]> {
@@ -50,3 +53,5 @@ export class InvoiceService {
 
 
 }
+
+

@@ -11,7 +11,7 @@
 
 // Import required module from Angular */
 import { Component } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormArray, FormControl, NgModel } from '@angular/forms';
+import { FormBuilder, Validators, FormArray, NgModel } from '@angular/forms';
 
 
 @Component({
@@ -24,7 +24,6 @@ import { FormGroup, FormBuilder, Validators, FormArray, FormControl, NgModel } f
 export class AppComponent {
   company: string;
   title = 'bobs-computer-repair';
-
 
   constructor (private fb: FormBuilder) {
     this.company = "Welcome to Bob's Computer Repair!";
